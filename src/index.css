@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Social Nexus Design Tokens
+   NOTE: Replace these placeholder HSL values with the exact palette from your PDF.
+*/
+:root {
+  --nx-bg: 240 10% 4%;
+  --nx-fg: 0 0% 98%;
+  --nx-muted: 240 5% 65%;
+  --nx-border: 240 6% 18%;
+  --nx-card: 240 9% 8%;
+
+  --nx-primary: 270 95% 62%;
+  --nx-secondary: 195 95% 55%;
+  --nx-accent: 25 95% 58%;
+  --nx-success: 150 70% 48%;
+  --nx-warning: 45 95% 55%;
+  --nx-danger: 0 90% 60%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-nx-bg text-nx-fg antialiased;
+}
+
+::selection {
+  background: hsl(var(--nx-primary) / 0.28);
+}
+
+@layer components {
+  .nx-container {
+    @apply mx-auto w-full max-w-6xl px-4;
+  }
+
+  .nx-card {
+    @apply rounded-2xl border border-nx-border bg-nx-card/80 shadow-soft backdrop-blur;
+  }
+
+  .nx-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-nx-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-nx-bg;
+  }
+
+  .nx-btn-primary {
+    @apply nx-btn bg-nx-primary text-nx-bg shadow-glow hover:translate-y-[-1px] hover:shadow-glow active:translate-y-0;
+  }
+
+  .nx-btn-ghost {
+    @apply nx-btn border border-nx-border bg-white/5 text-nx-fg hover:bg-white/10;
+  }
+
+  .nx-link {
+    @apply text-nx-fg/80 transition duration-300 hover:text-nx-fg;
+  }
+}
