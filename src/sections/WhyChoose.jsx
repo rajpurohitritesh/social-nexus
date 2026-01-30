@@ -1,48 +1,46 @@
+import {
+  BarChart3,
+  Check,
+  DollarSign,
+  Palette,
+  Rocket,
+  Target,
+  Users,
+} from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
 const reasons = [
   {
-    icon: '🎯',
+    icon: Target,
     title: 'One-Stop Digital Solution',
     description: 'From strategy to execution, we handle every aspect of your digital presence.',
   },
   {
-    icon: '🎨',
+    icon: Palette,
     title: 'Creative + Technical Expertise',
     description: 'A team that combines artistic vision with engineering excellence.',
   },
   {
-    icon: '📊',
+    icon: BarChart3,
     title: 'Data-Driven Strategies',
     description: 'Every decision backed by analytics, insights, and measurable outcomes.',
   },
   {
-    icon: '👥',
+    icon: Users,
     title: 'Dedicated Brand Managers',
     description: 'Personal attention and consistent communication throughout your journey.',
   },
   {
-    icon: '💰',
+    icon: DollarSign,
     title: 'Transparent Pricing',
     description: 'Clear, upfront pricing with no hidden fees or surprises.',
   },
   {
-    icon: '🚀',
+    icon: Rocket,
     title: 'Backed by SGCA Technologies',
     description: 'Built on a foundation of innovation, reliability, and cutting-edge technology.',
   },
 ]
-
-function CheckIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-5 flex-shrink-0" aria-hidden="true">
-      <path
-        fill="currentColor"
-        d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
-      />
-    </svg>
-  )
-}
 
 export function WhyChoose() {
   const [visible, setVisible] = useState(false)
@@ -70,43 +68,46 @@ export function WhyChoose() {
   }, [])
 
   return (
-    <section ref={ref} className="nx-container py-16 md:py-24">
+    <section ref={ref} className="nx-container py-12 sm:py-16 md:py-24">
       <div
-        className={`mb-12 text-center transition-all duration-700 ${
+        className={`mb-10 text-center transition-all duration-700 sm:mb-12 ${
           visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
       >
-        <h2 className="text-3xl font-black tracking-tight md:text-4xl">
+        <h2 className="text-2xl font-black tracking-tight sm:text-3xl md:text-4xl">
           Why Choose <span className="bg-gradient-to-r from-nx-primary to-nx-secondary bg-clip-text text-transparent">Social Nexus</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-nx-muted">
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-nx-muted sm:mt-4 sm:text-base">
           We combine creativity, strategy, and technology to deliver results that matter.
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {reasons.map((reason, index) => (
-          <div
-            key={reason.title}
-            className={`nx-card p-6 transition-all duration-700 md:p-8 ${
-              visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-            }`}
-            style={{ transitionDelay: `${index * 100}ms` }}
-          >
-            <div className="mb-4 flex items-start gap-4">
-              <div className="inline-flex size-12 items-center justify-center rounded-xl border border-nx-border bg-gradient-to-br from-nx-primary/20 via-nx-secondary/15 to-nx-accent/10 text-xl">
-                {reason.icon}
-              </div>
-              <div className="flex-1">
-                <div className="mb-2 flex items-center gap-2">
-                  <CheckIcon />
-                  <h3 className="text-lg font-extrabold tracking-tight">{reason.title}</h3>
+      <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {reasons.map((reason, index) => {
+          const Icon = reason.icon
+          return (
+            <div
+              key={reason.title}
+              className={`nx-card p-5 transition-all duration-700 hover:scale-[1.02] hover:border-nx-primary/25 hover:shadow-cardhover active:scale-[0.99] sm:p-6 md:p-8 ${
+                visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="nx-icon-box">
+                  <Icon className="size-6 text-nx-primary sm:size-6" aria-hidden />
                 </div>
-                <p className="text-sm leading-relaxed text-nx-muted">{reason.description}</p>
+                <div className="min-w-0 flex-1">
+                  <div className="mb-2 flex items-center gap-2">
+                    <Check className="size-5 shrink-0 text-nx-success" aria-hidden />
+                    <h3 className="text-base font-extrabold tracking-tight sm:text-lg">{reason.title}</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed text-nx-muted">{reason.description}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

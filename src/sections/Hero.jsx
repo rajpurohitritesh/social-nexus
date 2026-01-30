@@ -1,3 +1,4 @@
+import { ArrowRight, ChevronDown, Mail, Rocket } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -37,7 +38,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[85vh] overflow-hidden border-b border-nx-border bg-gradient-to-b from-nx-bg via-nx-bg to-nx-card/30">
+    <section className="relative min-h-[80vh] overflow-hidden border-b border-nx-border bg-gradient-to-b from-nx-bg via-nx-bg to-nx-card/30 sm:min-h-[85vh]">
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
         {Array.from({ length: 12 }).map((_, i) => (
@@ -49,13 +50,13 @@ export function Hero() {
       <div className="absolute -right-32 -top-32 size-96 rounded-full bg-gradient-to-br from-nx-primary/20 via-nx-secondary/15 to-nx-accent/10 blur-3xl" />
       <div className="absolute -bottom-32 -left-32 size-96 rounded-full bg-gradient-to-br from-nx-accent/20 via-nx-primary/15 to-nx-secondary/10 blur-3xl" />
 
-      <div className="nx-container relative z-10 flex min-h-[85vh] flex-col items-center justify-center py-20 text-center">
+      <div className="nx-container relative z-10 flex min-h-[80vh] flex-col items-center justify-center py-12 text-center sm:min-h-[85vh] sm:py-20">
         <div
           className={`space-y-6 transition-all duration-700 ${
             mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-          <h1 className="text-4xl font-black leading-tight tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className="text-3xl font-black leading-tight tracking-tight xs:text-4xl sm:text-4xl md:text-6xl lg:text-7xl">
             We Build Brands for the{' '}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-nx-primary via-nx-secondary to-nx-accent bg-clip-text text-transparent">
@@ -76,24 +77,19 @@ export function Hero() {
           </p>
 
           <div
-            className={`flex flex-wrap items-center justify-center gap-4 transition-all duration-700 delay-300 ${
+            className={`flex flex-wrap items-center justify-center gap-3 sm:gap-4 transition-all duration-700 delay-300 ${
               mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
           >
-            <Link to="/contact" className="group nx-btn-primary text-base">
-              <span>🚀</span>
+            <Link to="/contact" className="group nx-btn-primary text-base px-6 py-3.5">
+              <Rocket className="size-5 shrink-0 transition-transform duration-300 group-hover:rotate-12" aria-hidden />
               <span>Get Started</span>
-              <svg
-                viewBox="0 0 24 24"
-                className="size-4 transition-transform duration-300 group-hover:translate-x-1"
-                aria-hidden="true"
-              >
-                <path fill="currentColor" d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z" />
-              </svg>
+              <ArrowRight className="size-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" aria-hidden />
             </Link>
-            <Link to="/contact" className="group nx-btn-ghost text-base">
-              <span>📩</span>
-              <span>Talk to Our Experts</span>
+            <Link to="/contact" className="group nx-btn-ghost text-base px-6 py-3.5">
+              <Mail className="size-5 shrink-0" aria-hidden />
+              <span className="hidden sm:inline">Talk to Our Experts</span>
+              <span className="sm:hidden">Experts</span>
             </Link>
           </div>
         </div>
@@ -106,13 +102,7 @@ export function Hero() {
         >
           <div className="flex flex-col items-center gap-2 text-nx-muted">
             <span className="text-xs font-medium">Scroll to explore</span>
-            <svg
-              viewBox="0 0 24 24"
-              className="size-5 animate-floaty"
-              aria-hidden="true"
-            >
-              <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-            </svg>
+            <ChevronDown className="size-5 animate-floaty" aria-hidden />
           </div>
         </div>
       </div>

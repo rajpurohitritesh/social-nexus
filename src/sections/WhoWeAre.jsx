@@ -26,14 +26,14 @@ export function WhoWeAre() {
   }, [])
 
   return (
-    <section ref={ref} className="nx-container py-16 md:py-24">
-      <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
+    <section ref={ref} className="nx-container py-12 sm:py-16 md:py-24">
+      <div className="grid gap-6 lg:grid-cols-2 lg:items-center lg:gap-12">
         <div
           className={`space-y-4 transition-all duration-700 ${
             visible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
           }`}
         >
-          <h2 className="text-3xl font-black tracking-tight md:text-4xl">
+          <h2 className="text-2xl font-black tracking-tight sm:text-3xl md:text-4xl">
             Who We <span className="bg-gradient-to-r from-nx-primary to-nx-secondary bg-clip-text text-transparent">Are</span>
           </h2>
           <p className="text-base leading-relaxed text-nx-muted md:text-lg">
@@ -47,7 +47,7 @@ export function WhoWeAre() {
         </div>
 
         <div
-          className={`nx-card p-6 transition-all duration-700 delay-150 md:p-10 ${
+          className={`nx-card p-5 transition-all duration-700 delay-150 hover:scale-[1.02] hover:border-nx-primary/25 hover:shadow-cardhover active:scale-[0.99] sm:p-6 md:p-10 ${
             visible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
           }`}
         >

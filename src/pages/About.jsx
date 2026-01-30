@@ -1,3 +1,4 @@
+import { Eye, Target } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
 export function About() {
@@ -52,10 +53,10 @@ export function About() {
             visible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
           }`}
         >
-          <div className="mb-4 inline-flex size-16 items-center justify-center rounded-xl border border-nx-border bg-gradient-to-br from-nx-primary/20 via-nx-secondary/15 to-nx-accent/10 text-3xl">
-            👁️
+          <div className="nx-icon-box mb-4 size-14 sm:size-16">
+            <Eye className="size-7 text-nx-primary sm:size-8" aria-hidden />
           </div>
-          <h2 className="mb-4 text-2xl font-extrabold tracking-tight">Our Vision</h2>
+          <h2 className="mb-4 text-xl font-extrabold tracking-tight sm:text-2xl">Our Vision</h2>
           <p className="text-base leading-relaxed text-nx-muted">
             To be the leading digital agency where brands transform into digital powerhouses. We envision a world where
             every brand has the tools, strategy, and creative excellence to thrive in the digital landscape.
@@ -67,10 +68,10 @@ export function About() {
             visible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
           }`}
         >
-          <div className="mb-4 inline-flex size-16 items-center justify-center rounded-xl border border-nx-border bg-gradient-to-br from-nx-primary/20 via-nx-secondary/15 to-nx-accent/10 text-3xl">
-            🎯
+          <div className="nx-icon-box mb-4 size-14 sm:size-16">
+            <Target className="size-7 text-nx-primary sm:size-8" aria-hidden />
           </div>
-          <h2 className="mb-4 text-2xl font-extrabold tracking-tight">Our Mission</h2>
+          <h2 className="mb-4 text-xl font-extrabold tracking-tight sm:text-2xl">Our Mission</h2>
           <p className="text-base leading-relaxed text-nx-muted">
             To deliver exceptional digital experiences through strategic thinking, creative innovation, and technical
             excellence. We empower brands to connect with their audiences authentically and achieve measurable growth.

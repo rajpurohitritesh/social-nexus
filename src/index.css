@@ -22,10 +22,18 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   @apply bg-nx-bg text-nx-fg antialiased;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: hsl(var(--nx-primary) / 0.2);
+}
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
 }
 
 ::selection {
@@ -34,26 +42,30 @@ body {
 
 @layer components {
   .nx-container {
-    @apply mx-auto w-full max-w-6xl px-4;
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
   }
-
   .nx-card {
-    @apply rounded-2xl border border-nx-border bg-nx-card/80 shadow-soft backdrop-blur;
+    @apply rounded-2xl border border-nx-border bg-nx-card/80 shadow-soft backdrop-blur transition-all duration-400;
   }
-
   .nx-btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-nx-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-nx-bg;
+    @apply inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-nx-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-nx-bg;
   }
-
+  .nx-btn:active {
+    transform: scale(0.98);
+  }
   .nx-btn-primary {
-    @apply nx-btn bg-nx-primary text-nx-bg shadow-glow hover:translate-y-[-1px] hover:shadow-glow active:translate-y-0;
+    @apply nx-btn relative overflow-hidden bg-nx-primary text-nx-bg shadow-glow hover:-translate-y-0.5 hover:shadow-glow-lg active:translate-y-0;
   }
-
   .nx-btn-ghost {
-    @apply nx-btn border border-nx-border bg-white/5 text-nx-fg hover:bg-white/10;
+    @apply nx-btn border border-nx-border bg-white/5 text-nx-fg hover:border-nx-primary/30 hover:bg-white/10;
   }
-
   .nx-link {
-    @apply text-nx-fg/80 transition duration-300 hover:text-nx-fg;
+    @apply text-nx-fg/80 transition-colors duration-300 hover:text-nx-fg;
+  }
+  .nx-icon-box {
+    @apply flex size-12 shrink-0 items-center justify-center rounded-xl border border-nx-border bg-gradient-to-br from-nx-primary/20 via-nx-secondary/15 to-nx-accent/10 text-nx-primary transition-all duration-400 sm:size-14;
+  }
+  .nx-icon-box-hover {
+    @apply nx-icon-box group-hover:scale-110 group-hover:rotate-3 group-hover:border-nx-primary/40 group-hover:shadow-glow;
   }
 }

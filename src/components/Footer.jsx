@@ -19,7 +19,7 @@ function SocialIcon({ title, children }) {
   return (
     <a
       href="#"
-      className="grid size-10 place-items-center rounded-xl border border-nx-border bg-white/5 text-nx-fg/80 transition duration-300 hover:bg-white/10 hover:text-nx-fg"
+      className="grid min-h-[44px] min-w-[44px] place-items-center rounded-xl border border-nx-border bg-white/5 text-nx-fg/80 transition-all duration-300 hover:border-nx-primary/30 hover:bg-white/10 hover:text-nx-fg active:scale-95 touch-manipulation"
       aria-label={title}
     >
       {children}
@@ -30,8 +30,8 @@ function SocialIcon({ title, children }) {
 export function Footer() {
   return (
     <footer className="border-t border-nx-border bg-nx-bg">
-      <div className="nx-container py-10">
-        <div className="grid gap-10 lg:grid-cols-3">
+      <div className="nx-container py-8 sm:py-10">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-3">
           <div className="space-y-4">
             <Logo />
             <p className="max-w-sm text-sm leading-relaxed text-nx-muted">

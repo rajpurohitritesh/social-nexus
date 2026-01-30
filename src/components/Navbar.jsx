@@ -54,8 +54,8 @@ export function Navbar() {
                   to={item.to}
                   className={({ isActive }) =>
                     [
-                      'rounded-xl px-3 py-2 text-sm font-semibold transition duration-300',
-                      isActive ? 'bg-white/10 text-nx-fg' : 'text-nx-fg/70 hover:text-nx-fg hover:bg-white/5',
+                      'min-h-[44px] rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-300',
+                      isActive ? 'bg-white/10 text-nx-fg' : 'text-nx-fg/70 hover:bg-white/5 hover:text-nx-fg',
                     ].join(' ')
                   }
                 >
@@ -65,17 +65,17 @@ export function Navbar() {
             </nav>
 
             <div className="hidden items-center gap-2 lg:flex">
-              <Link to="/contact" className="nx-btn-ghost">
+              <Link to="/contact" className="nx-btn-ghost min-h-[44px]">
                 Talk to Our Experts
               </Link>
-              <Link to="/contact" className="nx-btn-primary">
+              <Link to="/contact" className="nx-btn-primary min-h-[44px]">
                 Get Started
               </Link>
             </div>
 
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-xl border border-nx-border bg-white/5 p-2 text-nx-fg/90 transition duration-300 hover:bg-white/10 lg:hidden"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-xl border border-nx-border bg-white/5 text-nx-fg/90 transition-all duration-300 hover:border-nx-primary/30 hover:bg-white/10 active:scale-95 lg:hidden touch-manipulation"
               aria-label="Toggle menu"
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
@@ -95,8 +95,8 @@ export function Navbar() {
         </div>
 
         {mobileOpen ? (
-          <div className="border-t border-nx-border bg-nx-bg/90 backdrop-blur lg:hidden">
-            <div className="nx-container py-3">
+          <div className="border-t border-nx-border bg-nx-bg/95 backdrop-blur-lg lg:hidden">
+            <div className="nx-container py-4">
               <div className="grid gap-1">
                 {navItems.map((item) => (
                   <NavLink
@@ -104,8 +104,8 @@ export function Navbar() {
                     to={item.to}
                     className={({ isActive }) =>
                       [
-                        'rounded-xl px-3 py-2 text-sm font-semibold transition duration-300',
-                        isActive ? 'bg-white/10 text-nx-fg' : 'text-nx-fg/70 hover:text-nx-fg hover:bg-white/5',
+                        'min-h-[48px] rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300 touch-manipulation',
+                        isActive ? 'bg-white/10 text-nx-fg' : 'text-nx-fg/70 active:bg-white/5 hover:text-nx-fg',
                       ].join(' ')
                     }
                   >
@@ -113,11 +113,11 @@ export function Navbar() {
                   </NavLink>
                 ))}
               </div>
-              <div className="mt-3 grid gap-2">
-                <Link to="/contact" className="nx-btn-ghost w-full">
+              <div className="mt-4 grid gap-3">
+                <Link to="/contact" className="nx-btn-ghost w-full min-h-[48px]">
                   Talk to Our Experts
                 </Link>
-                <Link to="/contact" className="nx-btn-primary w-full">
+                <Link to="/contact" className="nx-btn-primary w-full min-h-[48px]">
                   Get Started
                 </Link>
               </div>

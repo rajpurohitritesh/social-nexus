@@ -1,3 +1,4 @@
+import { UserCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 const testimonials = [
@@ -5,25 +6,21 @@ const testimonials = [
     quote: 'Social Nexus transformed our brand presence completely. Their creative approach and strategic thinking helped us reach new audiences.',
     author: 'Sarah Johnson',
     role: 'CEO, TechStart Inc.',
-    avatar: '👩‍💼',
   },
   {
     quote: 'The team at Social Nexus is professional, creative, and results-driven. Our social media engagement increased by 300% in just 3 months.',
     author: 'Michael Chen',
     role: 'Marketing Director, RetailCo',
-    avatar: '👨‍💼',
   },
   {
     quote: 'Working with Social Nexus was a game-changer. They understood our vision and delivered beyond our expectations.',
     author: 'Emily Rodriguez',
     role: 'Founder, Creative Studio',
-    avatar: '👩‍🎨',
   },
   {
     quote: 'Their data-driven approach and creative execution helped us achieve our growth targets faster than we imagined.',
     author: 'David Kim',
     role: 'VP Marketing, SaaS Platform',
-    avatar: '👨‍💻',
   },
 ]
 
@@ -42,14 +39,14 @@ export function TestimonialSlider() {
 
   return (
     <div className="relative">
-      <div className="nx-card p-8 md:p-12">
-        <div className="mb-6 text-4xl">"</div>
-        <blockquote className="mb-6 text-lg leading-relaxed text-nx-fg md:text-xl">
+      <div className="nx-card p-6 transition-all duration-400 hover:shadow-cardhover sm:p-8 md:p-12">
+        <div className="mb-4 text-4xl font-serif text-nx-primary/60">"</div>
+        <blockquote className="mb-6 text-base leading-relaxed text-nx-fg sm:text-lg md:text-xl">
           {current.quote}
         </blockquote>
         <div className="flex items-center gap-4">
-          <div className="flex size-12 items-center justify-center rounded-full border border-nx-border bg-gradient-to-br from-nx-primary/20 via-nx-secondary/15 to-nx-accent/10 text-2xl">
-            {current.avatar}
+          <div className="nx-icon-box size-12 rounded-full">
+            <UserCircle className="size-7 text-nx-primary" aria-hidden />
           </div>
           <div>
             <div className="font-extrabold tracking-tight">{current.author}</div>
@@ -58,18 +55,21 @@ export function TestimonialSlider() {
         </div>
       </div>
 
-      {/* Navigation dots */}
-      <div className="mt-6 flex items-center justify-center gap-2">
+      <div className="mt-6 flex items-center justify-center gap-1">
         {testimonials.map((_, index) => (
           <button
             key={index}
             type="button"
             onClick={() => setCurrentIndex(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'w-8 bg-nx-primary' : 'w-2 bg-nx-border hover:bg-nx-muted'
-            }`}
+            className="flex min-h-[44px] min-w-[44px] items-center justify-center touch-manipulation"
             aria-label={`Go to testimonial ${index + 1}`}
-          />
+          >
+            <span
+              className={`block rounded-full transition-all duration-300 ${
+                index === currentIndex ? 'h-2 w-8 bg-nx-primary' : 'h-2 w-2 bg-nx-border hover:bg-nx-muted'
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
